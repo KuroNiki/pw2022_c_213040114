@@ -7,15 +7,19 @@
     <title>coba GET</title>
 </head>
 <body>
-    <a href="kuliah_latihan3.php">kirim data nama</a>
+    <a href="kuliah_latihan3.php?nama=Galih">kirim data nama</a>
 
 <form action="kuliah_latihan3.php" method="post">
     
-    <label for="nama">nama : </label>
-    <input type="nama" name="nama" id="nama">
-    <label for="password">password : </label>
+<h3>Login Form</h3>
+  <form action="kuliah_latihan3.php" method="post">
+    <label for="username">Username : </label>
+    <input type="text" name="username" id="username">
+    <br>
+    <label for="password">Password :</label>
     <input type="password" name="password" id="password">
-    <button type="submit">kirim</button>
+    <br>
+    <button type="submit">Kirim</button>
 </form>
 
 

@@ -28,10 +28,7 @@
 // $_GET = [
 //     "nama" => "sandhika"
 // ]
-$_GET[$nama] ="sandhika";
-$_GET[$email] = "sandhika@unpas.ac.id";
-
-
-
-
+// $_GET[$nama] ="sandhika";
+// $_GET[$email] = "sandhika@unpas.ac.id";
+  var_dump($_GET);
 ?>
