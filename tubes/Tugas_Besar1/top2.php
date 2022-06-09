@@ -1,13 +1,7 @@
 <?php
 
 require 'functions.php';
-$top10as = query("SELECT * FROM top10as");
-
-
-if( isset($_POST["pencarian"]) ) {
-    $top10as = pencarian($_POST["search"]);
-  }
-
+$top10a = query("SELECT * FROM top10a");
 
 ?>
 
@@ -33,17 +27,18 @@ if( isset($_POST["pencarian"]) ) {
     </nav>
 
     <div class="container">
-      <h1>Daftar Top10 Anime Series</h1>
+      <h1>Daftar Top10 Anime Airing</h1>
         <form action="" method="post" >
           <input type="text" name="search" size="50" placeholder="Cari Anime,,," autocomplete="off" />
           <button type="submit" class="btn btn-outline-success" name="pencarian" style="margin-left: 15px;">cari</button>
         </form>
 
         <div class="btn">
-          <a href="ubah2.php" class="btn btn-dark">Top Anime Series</a>
-          <a href="top2.php" class="btn btn-secondary">Top Airing</a>
+          <a href="top.php" class="btn btn-secondary">Top Anime Series</a>
+          <a href="top2.php" class="btn btn-dark">Top Airing</a>
           <a href="ubah2.php" class="btn btn-secondary">Top Movie</a>
         </div>
+
 
 
 
@@ -59,21 +54,21 @@ if( isset($_POST["pencarian"]) ) {
           </tr>
         </thead>
         <tbody>
-          <?php $i = 1; foreach($top10as as $top10) : ?>
+          <?php $i = 1; foreach($top10a as $topa) : ?>
           <tr>
             <th scope="row" class="align-middle"><?= $i++; ?></th>
             <td class="align-middle">
-              <img src="img/top10as/<?= $top10["gambar"]; ?>" height="200">
+              <img src="img/top10a/<?= $topa["gambar"]; ?>" height="200">
             </td>
-            <th class="align-middle" id="judul"><?= $top10["judul"]; ?>
-                <h6 class="align-middle">Genre : <?= $top10["genre"]; ?></h6>
+            <th class="align-middle" id="judul"><?= $topa["judul"]; ?>
+                <h6 class="align-middle">Genre : <?= $topa["genre"]; ?></h6>
             </th>
-            <td class="align-middle"><?= $top10["ratting"]; ?></td>
-            <td class="align-middle"><?= $top10["status"]; ?></td>
+            <td class="align-middle"><?= $topa["ratting"]; ?></td>
+            <td class="align-middle"><?= $topa["status"]; ?></td>
             <td class="align-middle">
               <a href="" class="btn badge bg-warning">edit</a>
               <a href="" class="btn badge bg-danger">delete</a>
-              <a href="info.php?id=<?= $top10["id"]; ?>" class="btn btn-info">info</a>
+              <a href="" class="btn btn-info">info</a>
             </td>
           </tr>
           <?php endforeach; ?>
@@ -83,7 +78,5 @@ if( isset($_POST["pencarian"]) ) {
     </div>
 
 
-
-    
 </body>
 </html>
