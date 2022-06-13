@@ -1,4 +1,10 @@
 <?php
+session_start();
+if( !isset($_SESSION["login"]) ) {
+  header("location: login.php");
+  exit;
+}
+
 require 'functions.php';
 $complete = query("SELECT * FROM complete");
 
@@ -38,7 +44,7 @@ if( isset($_POST["cari"]) ) {
       <div class="collapse navbar-collapse" id="navbarmenu">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">baru rilis</a>
@@ -48,7 +54,7 @@ if( isset($_POST["cari"]) ) {
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="top.php">Top10 Anime</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Log-Out</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log-Out</a></li>
             </ul>
           </li>
         </ul>

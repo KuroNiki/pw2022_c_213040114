@@ -1,4 +1,9 @@
 <?php
+session_start();
+if( !isset($_SESSION["login"]) ) {
+  header("location: login.php");
+  exit;
+}
 
 require 'functions.php';
 $top10as = query("SELECT * FROM top10as");

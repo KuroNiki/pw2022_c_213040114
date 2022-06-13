@@ -1,4 +1,16 @@
 <?php
+require 'functions.php';
+session_start();
+if( !isset($_SESSION["login"]) ) {
+  header("location: login.php");
+  exit;
+}
+
+///ambil data url
+$id = $_GET["id"];
+
+///query data berdasarkan id
+$info = query("SELECT * FROM top10as WHERE id = $id")[0];
 
 
 ?>
@@ -9,18 +21,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/info.css">
     <title>Info Anime</title>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.jpg" alt="" width="100">
+        </a>
+      </div>
+    </nav>
 
 
-    <div class="container">
-        <div class="card mb-3">
-            <img src="img/top10as/gin.jpg" class="card-img-center" alt="">
+    <div class="container1  text-center">
+        <div class="card">
+            <input type="hidden" name="id" value="<?= $info["id"]; ?>">
+            <img src="img/top10as/<?= $info["gambar"]; ?>" class="card" alt="" width="170">
             <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+               <h2 class="card-title"><?= $info["judul"]; ?></h2>
+               <td class="card-text"><?= $info["deskripsi"]; ?></td>
            </div>
         </div>
 

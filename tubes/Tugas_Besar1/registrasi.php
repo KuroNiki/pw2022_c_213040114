@@ -1,4 +1,10 @@
 <?php
+session_start();
+if( isset($_SESSION["login"]) ) {
+    header("location: index.php");
+    exit;
+}
+
 require 'functions.php';
 
 if( isset($_POST["register"]) ) {
@@ -44,8 +50,10 @@ if( isset($_POST["register"]) ) {
             <li>
                 <button type="submit" name="register">Register</button>
             </li>
+            <br>
+            <a href="login.php" class="log" style="color: white;">Sudah Punya Akun?Login</a>
         </ul>
     </form>
-    
+
 </body>
 </html>
